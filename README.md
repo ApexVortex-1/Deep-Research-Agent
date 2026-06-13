@@ -1,12 +1,8 @@
 # 🔭 Deep Research Agent
 
-🌐 Live Demo: https://deep-research-agent-ai.streamlit.app/
-
 A multi-agent AI research system built with LangGraph, LangChain, Streamlit, and Groq LLMs.
 
 The system simulates a complete research workflow using specialized AI agents that collaborate to generate structured research reports.
-
----
 
 ## ✨ Features
 
@@ -43,42 +39,53 @@ The system simulates a complete research workflow using specialized AI agents th
 
 ## 🏗️ Architecture
 
-User Query  
-→ Planner Agent  
-→ Research Agent  
-→ Writer Agent  
-→ Critic Agent  
-→ Final Research Report  
-
----
+```text
+User Query
+    │
+    ▼
+Planner Agent
+    │
+    ▼
+Research Agent
+    │
+    ▼
+Writer Agent
+    │
+    ▼
+Critic Agent
+    │
+    ▼
+Final Research Report
+```
 
 ## 📂 Project Structure
 
-deep-research-agent/  
-├── agents/  
-│   ├── planner.py  
-│   ├── researcher.py  
-│   ├── writer.py  
-│   └── critic.py  
-│  
-├── graph/  
-│   ├── state.py  
-│   ├── workflow.py  
-│   └── nodes/  
-│  
-├── tools/  
-│   └── search_tool.py  
-│  
-├── app.py  
-│   
-│  
-├── test_planner.py  
-├── test_pipeline.py  
-├── requirements.txt  
-├── .env  
-└── README.md  
-
----
+```text
+deep-research-agent/
+│
+├── agents/
+│   ├── planner.py
+│   ├── researcher.py
+│   ├── writer.py
+│   └── critic.py
+│
+├── graph/
+│   ├── state.py
+│   ├── workflow.py
+│   └── nodes/
+│
+├── tools/
+│   └── search_tool.py
+│
+├── ui/
+│   └── app.py
+│
+├── test_planner.py
+├── test_pipeline.py
+├── requirements.txt
+├── .env
+└── README.md
+```
 
 ## ⚙️ Installation
 
