@@ -7,3 +7,5 @@ class ResearchState(TypedDict):
     plan: str
     research : str
     report : str
+    critique : str
+    iteration: int
