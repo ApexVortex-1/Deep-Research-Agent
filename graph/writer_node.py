@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()
 
@@ -10,14 +11,17 @@ llm = ChatGroq(
 
 
 def writer_node(state):
-    query = state['query']
-    plan = state['plan']
-    research = state['research']
     
+    logging.info("Writer node started.")
+
+    query = state["query"]
+    plan = state["plan"]
+    research = state["research"]
+
+    iteration = state.get("iteration", 0)
+
     prompt = f"""
 You are a professional research writer.
-
-Write a detailed report based on:
 
 TOPIC:
 {query}
@@ -25,12 +29,16 @@ TOPIC:
 PLAN:
 {plan}
 
-RESEARCH DATA:
+RESEARCH:
 {research}
 
-Structure the report clearly with headings and explanations.
+Write a detailed structured report.
 """
+
     response = llm.invoke(prompt)
+    logging.info("Writer node completed.")
+
     return {
-        "report": response.content
+        "report": response.content,
+        "iteration": iteration + 1
     }

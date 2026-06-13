@@ -9,3 +9,4 @@ class ResearchState(TypedDict):
     report : str
     critique : str
     iteration: int
+    max_iterations: int

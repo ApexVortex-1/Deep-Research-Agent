@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+import logging
 
 load_dotenv()
 
@@ -9,6 +10,8 @@ llm = ChatGroq(
 )
 
 def planner_node(state):
+    
+    logging.info("Planner node started.")
 
     query = state["query"]
 
@@ -23,6 +26,8 @@ Return structured sections and questions.
 """
 
     response = llm.invoke(prompt)
+    
+    logging.info("Planner node completed.")
 
     return {
         "plan": response.content
